@@ -1,5 +1,6 @@
 # Conceptos de POO, objeto estado, propiedades, comportamientos(métodos) y encapsulación 
 # de métodos y propiedades
+# La encapsulación no sige una norma, ha de ser en función de lo que necesite la lógica del programa
 class Coche():
     # estado inicial con el constructor
     def __init__(self):
