@@ -42,16 +42,17 @@ class Moto(Vehiculos):
         self.enmarcha, "\nAcelerando: ", self.acelera, "\nFrenando: ", self.frena, "\n", self.hcaballito)
 
 # Clase que no hereda
-class VElectricos():
-    def __init__(self):
+class VElectricos(Vehiculos):
+    def __init__(self, marca, modelo):
+        super().__init__(marca, modelo)
         self.autonomia = "100km"
     
     def cargarEnergia(self):
         self.cargando = True
 
 # Clase con herencia multiple, se da preferencia la primera clase que indiques
-# en cuanto a constructor en la siguiente se heredaría el de constructor
-class BicicletaElectrica(Vehiculos, VElectricos):
+# en cuanto a constructor en la siguiente se heredaría el de la primera clase que hereda, en este caso VElectricos
+class BicicletaElectrica(VElectricos, Vehiculos):
     pass
 
 # instanciamos
@@ -61,12 +62,8 @@ miBici = BicicletaElectrica("Orbea", "HC1030")
 
 # Método heredado de la superclase
 miMoto.caballito() 
-
 miMoto.estado() # Sobreescribe el método de la superclase, 
 
 miFurgoneta.arrancar()
-
 miFurgoneta.carga(True)
-
 miFurgoneta.estado()
-
